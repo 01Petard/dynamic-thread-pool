@@ -17,17 +17,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class ApiTest {
 
-    @Autowired
-    private RedisRegistry registry;
-
-    private RedissonClient redissonClient;
-
-    @Test
-    public void test123() {
-        RedisRegistry registry = new RedisRegistry(redissonClient);
-        String key = RegistryEnumVO.THREAD_POOL_CONFIG_LIST_KEY.getKey();
-        RList<ThreadPoolConfigEntity> list = redissonClient.getList(key);
-        System.out.println(list);
-    }
-
 }

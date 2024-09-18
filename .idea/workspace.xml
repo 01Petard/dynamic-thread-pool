@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11e05218-830b-4bbb-b7d5-9b9f8226d980" name="更改" comment="fix: 优化代码，使用Spring自动注入降低代码复杂度，减少分包，提升项目简洁性">
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/entity/ThreadPoolConfigEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/entity/ThreadPoolConfigEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/trigger/DynamicThreadPoolController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/types/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-admin/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/DynamicThreadPoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/DynamicThreadPoolService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/entity/ThreadPoolConfigEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/entity/ThreadPoolConfigEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/valobj/RegistryEnumVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/domain/model/valobj/RegistryEnumVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/registry/redis/RedisRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/registry/redis/RedisRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/trigger/job/ThreadPoolDataReportJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/trigger/job/ThreadPoolDataReportJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/trigger/listener/ThreadPoolConfigAdjustListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/main/java/cn/bugstack/middleware/dynamic/thread/pool/sdk/trigger/listener/ThreadPoolConfigAdjustListener.java" afterDir="false" />
+    <list default="true" id="11e05218-830b-4bbb-b7d5-9b9f8226d980" name="更改" comment="fix: 优化代码">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/test/java/cn/bustack/middleware/dynamic/thread/pool/ApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-spring-boot-starter/src/test/java/cn/bustack/middleware/dynamic/thread/pool/ApiTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/java/cn/bugstack/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/java/cn/bugstack/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/java/cn/bugstack/config/ThreadPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/java/cn/bugstack/config/ThreadPoolConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/dynamic-thread-pool-test/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +74,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.Application (1).executor": "Debug",
+    "Spring Boot.Application (1).executor": "Run",
     "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -236,7 +220,7 @@
       <workItem from="1726382630241" duration="178000" />
       <workItem from="1726383067743" duration="43000" />
       <workItem from="1726640206061" duration="2025000" />
-      <workItem from="1726644403605" duration="7427000" />
+      <workItem from="1726644403605" duration="10342000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 优化代码，使用Spring自动注入降低代码复杂度，减少分包，提升项目简洁性">
       <option name="closed" value="true" />
@@ -246,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726534572609</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: 优化代码">
+      <option name="closed" value="true" />
+      <created>1726652075234</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726652075234</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +255,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="hzx" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -277,7 +269,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: 优化代码，使用Spring自动注入降低代码复杂度，减少分包，提升项目简洁性" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 优化代码，使用Spring自动注入降低代码复杂度，减少分包，提升项目简洁性" />
+    <MESSAGE value="fix: 优化代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 优化代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
