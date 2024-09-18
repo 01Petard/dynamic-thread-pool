@@ -1,6 +1,5 @@
 package cn.bugstack.middleware.dynamic.thread.pool.sdk.config;
 
-import cn.bugstack.middleware.dynamic.thread.pool.sdk.trigger.listener.ThreadPoolConfigAdjustListener;
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.DynamicThreadPoolService;
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.IDynamicThreadPoolService;
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
@@ -8,8 +7,10 @@ import cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.model.valobj.Regist
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.trigger.job.ThreadPoolDataReportJob;
+import cn.bugstack.middleware.dynamic.thread.pool.sdk.trigger.listener.ThreadPoolConfigAdjustListener;
 import org.apache.commons.lang.StringUtils;
 import org.redisson.Redisson;
+import org.redisson.api.RBucket;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
 import org.redisson.codec.JsonJacksonCodec;
@@ -71,25 +72,32 @@ public class DynamicThreadPoolAutoConfig {
         return new RedisRegistry(dynamicThreadRedissonClient);
     }
 
+    /**
+     * 启动服务时，读取缓存中的线程池消息
+     * @param applicationContext
+     * @param threadPoolExecutorMap
+     * @param redissonClient
+     * @return  线程池服务类
+     */
     @Bean("dynamicThreadPollService")
     public DynamicThreadPoolService dynamicThreadPollService(ApplicationContext applicationContext, Map<String, ThreadPoolExecutor> threadPoolExecutorMap, RedissonClient redissonClient) {
         applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
-
         if (StringUtils.isBlank(applicationName)) {
-            applicationName = "缺省的";
-            logger.warn("动态线程池，启动提示。SpringBoot 应用未配置 spring.application.name 无法获取到应用名称！");
+            applicationName = "未命名应用程序";
+            logger.warn("动态线程池，启动提示：SpringBoot 应用未配置 spring.application.name，无法获取到应用名称！");
         }
-
         // 获取缓存数据，设置本地线程池配置
         Set<String> threadPoolKeys = threadPoolExecutorMap.keySet();
         for (String threadPoolKey : threadPoolKeys) {
-            ThreadPoolConfigEntity threadPoolConfigEntity = redissonClient.<ThreadPoolConfigEntity>getBucket(RegistryEnumVO.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getKey() + "_" + applicationName + "_" + threadPoolKey).get();
-            if (null == threadPoolConfigEntity) continue;
+            String cacheKey = RegistryEnumVO.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getKey() + "_" + applicationName + "_" + threadPoolKey;
+            ThreadPoolConfigEntity threadPoolConfigEntity = redissonClient.<ThreadPoolConfigEntity>getBucket(cacheKey).get();
+            if (null == threadPoolConfigEntity) {
+                continue;
+            }
             ThreadPoolExecutor threadPoolExecutor = threadPoolExecutorMap.get(threadPoolKey);
             threadPoolExecutor.setCorePoolSize(threadPoolConfigEntity.getCorePoolSize());
             threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
         }
-
         return new DynamicThreadPoolService(applicationName, threadPoolExecutorMap);
     }
 
@@ -103,9 +111,17 @@ public class DynamicThreadPoolAutoConfig {
         return new ThreadPoolConfigAdjustListener(dynamicThreadPoolService, registry);
     }
 
+    /**
+     * 启动服务时，往redisson中注册监听器。
+     * 监听器用于接收配置变更事件，调整本地线程池的状态
+     * @param redissonClient
+     * @param threadPoolConfigAdjustListener
+     * @return
+     */
     @Bean(name = "dynamicThreadPoolRedisTopic")
     public RTopic threadPoolConfigAdjustListener(RedissonClient redissonClient, ThreadPoolConfigAdjustListener threadPoolConfigAdjustListener) {
-        RTopic topic = redissonClient.getTopic(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName);
+        String topicKey = RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName;
+        RTopic topic = redissonClient.getTopic(topicKey);
         topic.addListener(ThreadPoolConfigEntity.class, threadPoolConfigAdjustListener);
         return topic;
     }

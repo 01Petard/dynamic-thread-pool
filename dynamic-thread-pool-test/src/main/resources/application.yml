@@ -1,5 +1,5 @@
 spring:
   application:
-    name: dynamic-thread-pool-test-app
+    name: HzxDB
   profiles:
     active: dev

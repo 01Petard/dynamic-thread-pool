@@ -1,4 +1,4 @@
-package cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.model.valobj;
+package cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.valobj;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ public enum RegistryEnumVO {
 
     THREAD_POOL_CONFIG_LIST_KEY("THREAD_POOL_CONFIG_LIST_KEY", "池化配置列表"),
     THREAD_POOL_CONFIG_PARAMETER_LIST_KEY("THREAD_POOL_CONFIG_PARAMETER_LIST_KEY", "池化配置参数"),
-    DYNAMIC_THREAD_POOL_REDIS_TOPIC("DYNAMIC_THREAD_POOL_REDIS_TOPIC", "动态线程池监听主题配置");
+    DYNAMIC_THREAD_POOL_REDIS_TOPIC("DYNAMIC_THREAD_POOL_REDIS_TOPIC", "监听线程池配置的主题");
 
     private final String key;
     private final String desc;

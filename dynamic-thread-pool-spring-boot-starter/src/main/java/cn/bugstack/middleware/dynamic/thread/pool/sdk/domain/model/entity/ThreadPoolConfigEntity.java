@@ -1,10 +1,13 @@
 package cn.bugstack.middleware.dynamic.thread.pool.sdk.domain.model.entity;
 
+import lombok.Data;
+
 /**
  * @author Fuzhengwei bugstack.cn @小傅哥
  * @description 线程池配置实体对象
  * @create 2024-05-12 16:05
  */
+@Data
 public class ThreadPoolConfigEntity {
 
     /**
@@ -58,70 +61,6 @@ public class ThreadPoolConfigEntity {
     public ThreadPoolConfigEntity(String appName, String threadPoolName) {
         this.appName = appName;
         this.threadPoolName = threadPoolName;
-    }
-
-    public String getAppName() {
-        return appName;
-    }
-
-    public String getThreadPoolName() {
-        return threadPoolName;
-    }
-
-    public int getCorePoolSize() {
-        return corePoolSize;
-    }
-
-    public void setCorePoolSize(int corePoolSize) {
-        this.corePoolSize = corePoolSize;
-    }
-
-    public int getMaximumPoolSize() {
-        return maximumPoolSize;
-    }
-
-    public void setMaximumPoolSize(int maximumPoolSize) {
-        this.maximumPoolSize = maximumPoolSize;
-    }
-
-    public int getActiveCount() {
-        return activeCount;
-    }
-
-    public void setActiveCount(int activeCount) {
-        this.activeCount = activeCount;
-    }
-
-    public int getPoolSize() {
-        return poolSize;
-    }
-
-    public void setPoolSize(int poolSize) {
-        this.poolSize = poolSize;
-    }
-
-    public String getQueueType() {
-        return queueType;
-    }
-
-    public void setQueueType(String queueType) {
-        this.queueType = queueType;
-    }
-
-    public int getQueueSize() {
-        return queueSize;
-    }
-
-    public void setQueueSize(int queueSize) {
-        this.queueSize = queueSize;
-    }
-
-    public int getRemainingCapacity() {
-        return remainingCapacity;
-    }
-
-    public void setRemainingCapacity(int remainingCapacity) {
-        this.remainingCapacity = remainingCapacity;
     }
 
 }

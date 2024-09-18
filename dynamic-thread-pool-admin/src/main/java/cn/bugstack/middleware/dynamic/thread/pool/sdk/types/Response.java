@@ -1,4 +1,4 @@
-package cn.bugstack.middleware.dynamic.thread.pool.types;
+package cn.bugstack.middleware.dynamic.thread.pool.sdk.types;
 
 import lombok.*;
 

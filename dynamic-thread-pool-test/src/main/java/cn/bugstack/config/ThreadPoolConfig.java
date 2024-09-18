@@ -14,7 +14,7 @@ import java.util.concurrent.*;
 @EnableConfigurationProperties(ThreadPoolConfigProperties.class)
 public class ThreadPoolConfig {
 
-    @Bean("threadPoolExecutor01")
+    @Bean("tpe_01")
     public ThreadPoolExecutor threadPoolExecutor01(ThreadPoolConfigProperties properties) {
         // 实例化策略
         RejectedExecutionHandler handler;
@@ -46,7 +46,7 @@ public class ThreadPoolConfig {
                 handler);
     }
 
-    @Bean("threadPoolExecutor02")
+    @Bean("tpe_02")
     public ThreadPoolExecutor threadPoolExecutor02(ThreadPoolConfigProperties properties) {
         // 实例化策略
         RejectedExecutionHandler handler;

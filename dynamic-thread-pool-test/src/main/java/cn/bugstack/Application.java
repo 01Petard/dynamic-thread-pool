@@ -19,7 +19,7 @@ public class Application {
     }
 
     @Bean
-    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01) {
+    public ApplicationRunner applicationRunner(ExecutorService tpe_01) {
         return args -> {
             while (true){
                 // 创建一个随机时间生成器
@@ -30,7 +30,7 @@ public class Application {
                 int sleepTime = random.nextInt(10) + 1; // 1到10秒之间
 
                 // 提交任务到线程池
-                threadPoolExecutor01.submit(() -> {
+                tpe_01.submit(() -> {
                     try {
                         // 模拟任务启动延迟
                         TimeUnit.SECONDS.sleep(initialDelay);
