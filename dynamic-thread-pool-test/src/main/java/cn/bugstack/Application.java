@@ -2,6 +2,7 @@ package cn.bugstack;
 
 import cn.bugstack.task.SystemMonitor;
 import cn.bugstack.task.ThreadPoolSimulation;
+import org.apache.catalina.Executor;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 import javax.annotation.Resource;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootApplication
@@ -39,7 +39,7 @@ public class Application {
                 ThreadPoolSimulation threadPoolSimulation = new ThreadPoolSimulation(taskId.getAndIncrement());
                 tpe_01.submit(threadPoolSimulation);
                 try {
-                    Thread.sleep(new Random().nextInt(50) + 1); // 模拟提交任务的时间间隔
+                    Thread.sleep(new Random().nextInt(500) + 1); // 模拟提交任务的时间间隔
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     System.err.println("主线程中断！");
@@ -48,9 +48,4 @@ public class Application {
         };
     }
 
-    // 用于测试的 ExecutorService Bean
-    @Bean
-    public ExecutorService executorService() {
-        return Executors.newFixedThreadPool(10); // 创建固定大小的线程池
-    }
 }

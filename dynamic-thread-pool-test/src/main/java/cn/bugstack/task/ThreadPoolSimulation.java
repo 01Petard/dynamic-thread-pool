@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 创建一个模拟线程池任务的Runnable
+ * 模拟线程池任务
  * @return Runnable 模拟任务
  */
 public class ThreadPoolSimulation implements Runnable {

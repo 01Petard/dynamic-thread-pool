@@ -20,8 +20,8 @@ public class SystemMonitor implements Runnable {
     private double cpuUsage;
 
     public SystemMonitor() {
-        this.memoryUsage = 0.8;
-        this.cpuUsage = 0.8;
+        this.memoryUsage = 80;
+        this.cpuUsage = 80;
     }
 
     public SystemMonitor(double memoryUsage, double cpuUsage) {

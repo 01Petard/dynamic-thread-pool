@@ -78,4 +78,15 @@ public class ThreadPoolConfig {
                 handler);
     }
 
+    // 用于测试的 ExecutorService Bean
+    @Bean("test_ExecutorService")
+    public ExecutorService executorService() {
+        return Executors.newFixedThreadPool(10);
+    }
+
+    // 用于测试的 ThreadPoolExecutor Bean
+    @Bean("test_ThreadPoolExecutor")
+    public ThreadPoolExecutor threadPoolExecutorService() {
+        return new ThreadPoolExecutor(10, 20, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>(100));
+    }
 }
