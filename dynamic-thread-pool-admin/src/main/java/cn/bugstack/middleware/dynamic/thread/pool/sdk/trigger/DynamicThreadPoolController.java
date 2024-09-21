@@ -87,10 +87,12 @@ public class DynamicThreadPoolController {
         try {
             String appName = request.getAppName();
             String threadPoolName = request.getThreadPoolName();
+
             log.info("修改线程池配置开始，应用名称：{}，线程池名称：{}，修改信息：{}", appName, threadPoolName, JSON.toJSONString(request));
             String topicKey = RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + appName;
             RTopic topic = redissonClient.getTopic(topicKey);
             topic.publish(request);
+
             log.info("修改线程池配置完成，应用名称：{}，线程池名称：{}", appName, threadPoolName);
             return Response.<Boolean>builder()
                     .code(Response.Code.SUCCESS.getCode())

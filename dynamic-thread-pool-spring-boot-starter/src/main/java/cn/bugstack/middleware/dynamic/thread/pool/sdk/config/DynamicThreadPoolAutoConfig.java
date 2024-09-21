@@ -10,7 +10,6 @@ import cn.bugstack.middleware.dynamic.thread.pool.sdk.trigger.job.ThreadPoolData
 import cn.bugstack.middleware.dynamic.thread.pool.sdk.trigger.listener.ThreadPoolConfigAdjustListener;
 import org.apache.commons.lang.StringUtils;
 import org.redisson.Redisson;
-import org.redisson.api.RBucket;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
 import org.redisson.codec.JsonJacksonCodec;
@@ -79,8 +78,8 @@ public class DynamicThreadPoolAutoConfig {
      * @param redissonClient
      * @return  线程池服务类
      */
-    @Bean("dynamicThreadPollService")
-    public DynamicThreadPoolService dynamicThreadPollService(ApplicationContext applicationContext, Map<String, ThreadPoolExecutor> threadPoolExecutorMap, RedissonClient redissonClient) {
+    @Bean("dynamicThreadPoolService")
+    public DynamicThreadPoolService dynamicThreadPoolService(ApplicationContext applicationContext, Map<String, ThreadPoolExecutor> threadPoolExecutorMap, RedissonClient redissonClient) {
         applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
         if (StringUtils.isBlank(applicationName)) {
             applicationName = "未命名应用程序";
